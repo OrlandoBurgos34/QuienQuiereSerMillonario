@@ -72,6 +72,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appstore" translatesAutoresizingMaskIntoConstraints="NO" id="qpD-Tj-MUO">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.075005896389999993" green="0.076847292479999996" blue="0.33643263579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="QhAFEBlRA2zknaSRCkj9p9XI" translatesAutoresizingMaskIntoConstraints="NO" id="9Gf-os-h26">
                                 <rect key="frame" x="-19" y="-14" width="430" height="408"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -126,11 +131,6 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appstore" translatesAutoresizingMaskIntoConstraints="NO" id="qpD-Tj-MUO">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.075005896389999993" green="0.076847292479999996" blue="0.33643263579999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="n8X-tz-y48"/>
                         <color key="backgroundColor" red="0.13011649250000001" green="0.13638696642715775" blue="0.40218275582545698" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
