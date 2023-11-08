@@ -7,25 +7,18 @@
 
 import UIKit
 
-class ReglasViewControler: UIViewController {
+class ReglasViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
+    var userName: String = ""
     @IBAction func enterGameButton(_ sender: UIButton) {
+        if let rulesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "interfaceGameViewController") as? InterfaceGameViewController {
+            self.present(rulesViewController, animated: true, completion: nil)
+        } else {
+            print("Failed to instantiate the view controller.")
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-7k-yjX" customClass="ReglasViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wb-7k-yjX">
                                 <rect key="frame" x="16" y="747" width="361" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.081371329719999996" green="0.1094674543" blue="0.42679202560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -35,9 +35,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="nextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YH8-8R-7Aa"/>
-                                    <action selector="nextPageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PYX-Oj-kgB"/>
-                                    <action selector="nextPageView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vae-Au-Zeo"/>
+                                    <action selector="nextPageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hhw-02-TEw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingrese nombre del Jugador" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wa-JR-ptL">
@@ -56,19 +54,17 @@
                         <color key="backgroundColor" red="0.04638130218" green="0.061801247300000001" blue="0.47442936899999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
-                        <outlet property="InsertName" destination="czl-Pf-F7k" id="iNi-Am-gKu"/>
-                        <outlet property="insertName" destination="czl-Pf-F7k" id="wUk-73-wkR"/>
-                        <outlet property="insertNameTextField" destination="czl-Pf-F7k" id="ltl-a2-Iq3"/>
+                        <outlet property="insertNameTextField" destination="czl-Pf-F7k" id="Jqo-TM-psp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2967" y="-339"/>
         </scene>
-        <!--View Controller-->
+        <!--Reglas View Controller-->
         <scene sceneID="MDv-VU-hit">
             <objects>
-                <viewController id="kbX-Cx-0zY" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="reglasViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kbX-Cx-0zY" customClass="ReglasViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lRU-DN-Wdt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,48 +79,48 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bienvenido" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGr-jS-XTY">
-                                <rect key="frame" x="59" y="300" width="274" height="152"/>
+                                <rect key="frame" x="59" y="270" width="274" height="152"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reglas de Juego:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEG-IE-7KN">
-                                <rect key="frame" x="71" y="430" width="149" height="22"/>
+                                <rect key="frame" x="46" y="372" width="149" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1. Tendras que responder 10 preguntas de selección multiple con unica respuesta" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1k-Cg-LkH">
-                                <rect key="frame" x="39" y="461" width="328" height="85"/>
+                                <rect key="frame" x="39" y="402" width="328" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2. Cada pregunta acertada tendra una ponderacion de 10 puntos " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6To-Pt-2U4">
-                                <rect key="frame" x="39" y="525" width="328" height="85"/>
+                                <rect key="frame" x="39" y="466" width="328" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3. Tendras derecho solo a 3 fallas, si llegas a fallar esas 3 veces el juego acabara" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB3-2m-WF2">
-                                <rect key="frame" x="39" y="591" width="328" height="85"/>
+                                <rect key="frame" x="37" y="530" width="328" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4. Una vez terminado el juego se mostrara tu puntuacion y un listado de preguntas acertadas y respuestas fallidas " textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8V-V9-YqG">
-                                <rect key="frame" x="46" y="682" width="319" height="85"/>
+                                <rect key="frame" x="42" y="610" width="319" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RF1-04-0cZ" customClass="InterfaceGameViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target">
-                                <rect key="frame" x="39" y="783" width="326" height="35"/>
+                                <rect key="frame" x="42" y="719" width="326" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18313783410000001" green="0.1186749414" blue="0.58228915930000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -139,15 +135,16 @@
                         <viewLayoutGuide key="safeArea" id="n8X-tz-y48"/>
                         <color key="backgroundColor" red="0.13011649250000001" green="0.13638696642715775" blue="0.40218275582545698" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="6MB-Ce-e1A"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVL-Rs-MVb" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2205" y="-339"/>
+            <point key="canvasLocation" x="-2206.8702290076335" y="-339.43661971830988"/>
         </scene>
-        <!--Interface De Juego View Controller-->
+        <!--Interface Game View Controller-->
         <scene sceneID="Q1q-2e-NHw">
             <objects>
-                <viewController id="vUe-Tg-cUM" customClass="InterfaceDeJuegoViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="interfaceGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vUe-Tg-cUM" customClass="InterfaceGameViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0tZ-UW-bsk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,7 +233,7 @@
         <!--Fase Final View Controller-->
         <scene sceneID="j7n-35-y3g">
             <objects>
-                <viewController id="qpG-Vo-ZjJ" customClass="FaseFinalViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FaseFinalViewController" id="qpG-Vo-ZjJ" customClass="FaseFinalViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RfD-LQ-cVJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
