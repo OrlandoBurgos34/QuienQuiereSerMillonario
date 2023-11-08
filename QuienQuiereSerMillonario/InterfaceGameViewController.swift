@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InterfaceDeJuegoViewController: UIViewController {
+class InterfaceGameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

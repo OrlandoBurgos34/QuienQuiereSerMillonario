@@ -119,7 +119,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RF1-04-0cZ" customClass="InterfaceGameViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RF1-04-0cZ">
                                 <rect key="frame" x="42" y="719" width="326" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18313783410000001" green="0.1186749414" blue="0.58228915930000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -207,10 +207,6 @@
                                     <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="h5T-jb-w3L"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boton-de-play (1)" translatesAutoresizingMaskIntoConstraints="NO" id="kQn-66-OfG">
-                                <rect key="frame" x="124" y="739" width="145" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="¿Preguntas?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtv-yF-zEA">
                                 <rect key="frame" x="46" y="409" width="310" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -278,7 +274,6 @@
         <image name="QhAFEBlRA2zknaSRCkj9p9XI" width="999" height="562"/>
         <image name="Screenshot-2023-11-03-at-3.56.13-PM" width="1080" height="1570"/>
         <image name="appstore" width="1024" height="1024"/>
-        <image name="boton-de-play (1)" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
