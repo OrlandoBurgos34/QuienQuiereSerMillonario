@@ -14,11 +14,7 @@ class ReglasViewController: UIViewController {
     }
     var userName: String = ""
     @IBAction func enterGameButton(_ sender: UIButton) {
-        if let rulesViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "interfaceGameViewController") as? InterfaceGameViewController {
-            self.present(rulesViewController, animated: true, completion: nil)
-        } else {
-            print("Failed to instantiate the view controller.")
-        }
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

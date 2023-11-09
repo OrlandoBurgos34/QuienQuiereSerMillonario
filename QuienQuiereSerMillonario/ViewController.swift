@@ -16,14 +16,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func nextPageButton(_ sender: UIButton) {
-        insertAndSendName()
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "reglasViewController") as? ReglasViewController {
-            self.present(viewController, animated: true, completion: nil)
-        } else {
-            print("Failed to instantiate the view controller.")
-        }
+        let nextViewController = self.storyboard?.instantiateViewController(identifier: "ReglasViewController")
+        self.navigationController?.pushViewController(nextViewController!, animated: true)
     }
     
+    @IBAction func pushButton(_ sender: UIButton) {
+        insertAndSendName()
+        let nextPageGame = self.storyboard?.instantiateViewController(identifier: "InterfaceGameViewController")
+        self.navigationController?.pushViewController(nextPageGame!, animated: true)
+    }
     func insertAndSendName() {
         if let nameText = insertNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !nameText.isEmpty {
             userName = nameText
