@@ -16,14 +16,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func nextPageButton(_ sender: UIButton) {
-        let nextViewController = self.storyboard?.instantiateViewController(identifier: "ReglasViewController")
-        self.navigationController?.pushViewController(nextViewController!, animated: true)
+        insertAndSendName()
+        if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ReglasViewController") as? ReglasViewController {
+            nextViewController.userName = userName
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        } else {
+            print("Error: No se pudo instanciar ReglasViewController desde el storyboard.")
+        }
+            
+            
     }
     
     @IBAction func pushButton(_ sender: UIButton) {
         insertAndSendName()
-        let nextPageGame = self.storyboard?.instantiateViewController(identifier: "InterfaceGameViewController")
-        self.navigationController?.pushViewController(nextPageGame!, animated: true)
+        if let nextPageGame = self.storyboard?.instantiateViewController(identifier: "InterfaceGameViewController") as? InterfaceGameViewController {
+            nextPageGame.userName = userName
+            self.navigationController?.pushViewController(nextPageGame, animated: true)
+        }
     }
     func insertAndSendName() {
         if let nameText = insertNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !nameText.isEmpty {

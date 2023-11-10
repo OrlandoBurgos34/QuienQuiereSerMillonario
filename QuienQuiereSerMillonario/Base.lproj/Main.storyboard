@@ -78,7 +78,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="nextPageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hhw-02-TEw"/>
-                                    <segue destination="kbX-Cx-0zY" kind="show" id="HOl-lb-PhZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -97,7 +96,6 @@
         <!--Reglas View Controller-->
         <scene sceneID="MDv-VU-hit">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sVL-Rs-MVb" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ReglasViewController" id="kbX-Cx-0zY" customClass="ReglasViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lRU-DN-Wdt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -118,8 +116,8 @@
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reglas de Juego:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEG-IE-7KN">
-                                <rect key="frame" x="46" y="372" width="149" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Las reglas de Juego son:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEG-IE-7KN">
+                                <rect key="frame" x="46" y="372" width="213" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -170,7 +168,11 @@
                         <color key="backgroundColor" red="0.13011649250000001" green="0.13638696642715775" blue="0.40218275582545698" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="6MB-Ce-e1A"/>
+                    <connections>
+                        <outlet property="TextWelcome" destination="cGr-jS-XTY" id="Vfh-JR-cH9"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sVL-Rs-MVb" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2206.8702290076335" y="-339.43661971830988"/>
         </scene>
@@ -197,7 +199,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="A. Respuesta"/>
                                 <connections>
-                                    <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="zkb-hQ-K1y"/>
+                                    <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="mia-7J-L0v"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2r-aW-egb">
@@ -207,7 +209,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="B. Respuesta"/>
                                 <connections>
-                                    <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="x9o-N2-vMg"/>
+                                    <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="Ek4-Ax-usX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ca-JR-gmB">
@@ -217,7 +219,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="C. Respuesta"/>
                                 <connections>
-                                    <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="SJE-qo-9P5"/>
+                                    <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="wZZ-dr-m8h"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBi-2p-iiG">
@@ -227,7 +229,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="D. Respuesta"/>
                                 <connections>
-                                    <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="9v4-ev-XH8"/>
+                                    <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="wGY-wV-8C2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yi-qe-i3J">
@@ -237,14 +239,28 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="E. Respuesta"/>
                                 <connections>
-                                    <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="h5T-jb-w3L"/>
+                                    <action selector="answerGameLabel:" destination="vUe-Tg-cUM" eventType="touchUpInside" id="k20-3I-ekK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="¿Preguntas?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtv-yF-zEA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xtv-yF-zEA">
                                 <rect key="frame" x="46" y="409" width="310" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="¿Preguntas?">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La7-7k-nlY">
+                                <rect key="frame" x="180" y="735" width="42" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -253,7 +269,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="C2V-tu-vuV"/>
                     <connections>
-                        <outlet property="questionGameLabel" destination="Xtv-yF-zEA" id="MKK-qY-QNt"/>
+                        <outlet property="optionalQuestion" destination="1Yi-qe-i3J" id="YG8-wW-xuj"/>
+                        <outlet property="questionGameLabel" destination="Xtv-yF-zEA" id="HGG-NG-dAx"/>
+                        <outlet property="validationQuestion" destination="La7-7k-nlY" id="0iY-ix-hXX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFA-U2-NPY" sceneMemberID="firstResponder"/>
@@ -272,8 +290,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Felicidades Recibistes 70 Puntos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSk-7F-5Nu">
+                                <rect key="frame" x="42" y="109" width="310" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICB-mS-Lib" customClass="VIewController">
-                                <rect key="frame" x="153" y="783" width="89" height="35"/>
+                                <rect key="frame" x="152" y="745" width="89" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.13011649250000001" green="0.1363869664" blue="0.4863345623" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
@@ -284,13 +309,6 @@
                                     <action selector="resetGameButton:" destination="qpG-Vo-ZjJ" eventType="touchUpInside" id="qRp-ah-Gwm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Felicidades Recibistes 70 Puntos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSk-7F-5Nu">
-                                <rect key="frame" x="42" y="109" width="310" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Imb-3B-lGZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

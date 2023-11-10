@@ -28,6 +28,7 @@
 		50E1673B2AF3F22A00C31DF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50E1673D2AF3F22B00C31DF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50E167422AF3F22B00C31DF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50F076602AFECE4D00A47EA7 /* Structura.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Structura.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 				50E167422AF3F22B00C31DF5 /* Info.plist */,
 				5008E4D92AFA6FD100457B11 /* ReglasViewController.swift */,
 				5008E4DB2AFA73E400457B11 /* InterfaceGameViewController.swift */,
+				50F076602AFECE4D00A47EA7 /* Structura.playground */,
 				5008E4DD2AFA743F00457B11 /* FaseFinalViewController.swift */,
 			);
 			path = QuienQuiereSerMillonario;
