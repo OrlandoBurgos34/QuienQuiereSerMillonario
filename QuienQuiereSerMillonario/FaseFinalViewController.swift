@@ -16,10 +16,10 @@ class FaseFinalViewController: UIViewController {
     var pointsEarned: Int = 0
     var userName: String = ""
     @IBOutlet weak var viewPointTextLabel: UILabel!
-    @IBOutlet weak var acertadasLabel: UILabel!
-    @IBOutlet weak var fallidasLabel: UILabel!
-    @IBOutlet weak var preguntasCorrectasLabel: UILabel!
-    @IBOutlet weak var preguntasIncorrectasLabel: UILabel!
+    @IBOutlet weak var correctLabel: UILabel!
+    @IBOutlet weak var failedLabel: UILabel!
+    @IBOutlet weak var correctQuestionLabel: UILabel!
+    @IBOutlet weak var failedQuestionLabel: UILabel!
     @IBAction func resetGameButton(_ sender: UIButton) {
         resetGame()
         navigationController?.popToRootViewController(animated: true)
@@ -27,10 +27,10 @@ class FaseFinalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewPointTextLabel.text = "Puntos Ganados: \(calculateFinalScore())."
-        acertadasLabel.text = "Preguntas Acertadas: \(correctQuestions.count)"
-        fallidasLabel.text = "Preguntas Fallidas: \(wrongQuestions.count)"
-        preguntasCorrectasLabel.text = "Preguntas Acertadas:\n\(getTextQuestions(correctQuestions))"
-        preguntasIncorrectasLabel.text = "Preguntas Fallidas:\n\(getTextQuestions(wrongQuestions))"
+        correctLabel.text = "Preguntas Acertadas: \(correctQuestions.count)"
+        failedLabel.text = "Preguntas Fallidas: \(wrongQuestions.count)"
+        correctQuestionLabel.text = "Preguntas Acertadas:\n\(getTextQuestions(correctQuestions))"
+        failedQuestionLabel.text = "Preguntas Fallidas:\n\(getTextQuestions(wrongQuestions))"
     }
     
     func resetGame() {

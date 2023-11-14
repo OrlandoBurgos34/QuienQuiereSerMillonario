@@ -55,11 +55,11 @@ class InterfaceGameViewController: UIViewController {
             if esCorrecta {
                 correctQuestions.append(currentQuestion)
                 pointsEarned += 10
-                mostrarMensaje("¡Felicitaciones! Respuesta anterior correcta.")
+                showMessage("¡Felicitaciones! Respuesta anterior correcta.")
             } else {
                 wrongQuestions.append(currentQuestion)
                 failedAttempts += 1
-                mostrarMensaje("Respuesta anterior incorrecta. La respuesta correcta era \(currentQuestion.correctAnswer).")
+                showMessage("Respuesta anterior incorrecta. La respuesta correcta era \(currentQuestion.correctAnswer).")
             }
             showNextQuestion()
         }
@@ -87,11 +87,11 @@ class InterfaceGameViewController: UIViewController {
         opcion4Button.setTitle(currentQuestion.responseOptions[3], for: .normal)
         opcion5Button.setTitle(currentQuestion.responseOptions[4], for: .normal)
     }
-    func mostrarMensaje(_ mensaje: String) {
+    func showMessage(_ mensaje: String) {
         mensajeLabel.text = mensaje
     }
 
-    func prepararResultadosFinalesViewController() -> FaseFinalViewController {
+    func prepareFinalResultsViewController() -> FaseFinalViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let resultsViewController = storyboard.instantiateViewController(withIdentifier: "FaseFinalViewController") as! FaseFinalViewController
         resultsViewController.correctQuestions = correctQuestions
@@ -101,10 +101,9 @@ class InterfaceGameViewController: UIViewController {
             return resultsViewController
         }
     func showFinalResults() {
-            let resultsViewController = prepararResultadosFinalesViewController()
+            let resultsViewController = prepareFinalResultsViewController()
             navigationController?.pushViewController(resultsViewController, animated: true)
         }
-
 }
 
 
