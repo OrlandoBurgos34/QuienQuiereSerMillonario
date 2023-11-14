@@ -10,10 +10,10 @@ import UIKit
 class FaseFinalViewController: UIViewController {
 
 
-    var preguntasCorrectas: [Question] = []
-    var preguntasIncorrectas: [Question] = []
-    var intentosFallidos: Int = 0
-    var puntosGanados: Int = 0
+    var correctQuestions: [Question] = []
+    var wrongQuestions: [Question] = []
+    var failedAttempts: Int = 0
+    var pointsEarned: Int = 0
     var userName: String = ""
     @IBOutlet weak var viewPointTextLabel: UILabel!
     @IBOutlet weak var acertadasLabel: UILabel!
@@ -27,32 +27,32 @@ class FaseFinalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewPointTextLabel.text = "Puntos Ganados: \(calculateFinalScore())."
-        acertadasLabel.text = "Preguntas Acertadas: \(preguntasCorrectas.count)"
-        fallidasLabel.text = "Preguntas Fallidas: \(preguntasIncorrectas.count)"
-        preguntasCorrectasLabel.text = "Preguntas Acertadas:\n\(obtenerTextoPreguntas(preguntasCorrectas))"
-        preguntasIncorrectasLabel.text = "Preguntas Fallidas:\n\(obtenerTextoPreguntas(preguntasIncorrectas))"
+        acertadasLabel.text = "Preguntas Acertadas: \(correctQuestions.count)"
+        fallidasLabel.text = "Preguntas Fallidas: \(wrongQuestions.count)"
+        preguntasCorrectasLabel.text = "Preguntas Acertadas:\n\(getTextQuestions(correctQuestions))"
+        preguntasIncorrectasLabel.text = "Preguntas Fallidas:\n\(getTextQuestions(wrongQuestions))"
     }
     
     func resetGame() {
-        preguntasCorrectas = []
-        preguntasIncorrectas = []
-        intentosFallidos = 0
-        puntosGanados = 0
+        correctQuestions = []
+        wrongQuestions = []
+        failedAttempts = 0
+        pointsEarned = 0
     }
     func calculateFinalScore() -> Int {
-        var finalPoints = preguntasIncorrectas.count * 10
-        if preguntasCorrectas.count == 10{
-            return puntosGanados - finalPoints
+        var finalPoints = wrongQuestions.count * 10
+        if correctQuestions.count == 10{
+            return pointsEarned - finalPoints
         } else {
-            finalPoints = preguntasCorrectas.count * 10
+            finalPoints = correctQuestions.count * 10
             return finalPoints
         }
     }
-    func obtenerTextoPreguntas(_ questions: [Question]) -> String {
-        var textoPreguntas = ""
-        for pregunta in questions {
-            textoPreguntas += "\(pregunta.statement)\n"
+    func getTextQuestions(_ questions: [Question]) -> String {
+        var textQuestions = ""
+        for question in questions {
+            textQuestions += "\(question.statement)\n"
         }
-        return textoPreguntas
+        return textQuestions
     }
 }

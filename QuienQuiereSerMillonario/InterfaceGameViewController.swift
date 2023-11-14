@@ -9,32 +9,32 @@ import UIKit
 
 struct Question {
     var statement: String
-    var opciones: [String]
-    var respuestaCorrecta: String
+    var responseOptions: [String]
+    var correctAnswer: String
 
     func isCorrect(_ selectedAnswerIndex: Int) -> Bool {
-        return opciones[selectedAnswerIndex] == respuestaCorrecta
+        return responseOptions[selectedAnswerIndex] == correctAnswer
     }
 }
 
 class InterfaceGameViewController: UIViewController {
 
     var questions: [Question] = [
-        Question(statement: "¿Cuándo acabó la II Guerra Mundial?", opciones: ["1950", "1920", "1955", "1945", "1820"], respuestaCorrecta: "1945"),
-        Question(statement: "¿Cuál es el océano más grande del mundo?", opciones: ["océano pacifico", "océano atlantico", "océano indico", "océano marino", "océano artico"], respuestaCorrecta: "océano pacifico"),
-        Question(statement: "¿Cuántos huesos hay en el cuerpo humano?", opciones: ["106 huesos", "206 huesos", "100 huesos", "155 huegos", "36 huesos"], respuestaCorrecta: "206 huesos"),
-        Question(statement: "¿Quién pintó la última cena?", opciones: ["Pablo Picasso", "Diego Velázquez", "Salvador Dali", "Claude Monet", "Leonardo Da Vinci"], respuestaCorrecta: "Leonardo Da Vinci"),
-        Question(statement: "¿Cuántas películas de Harry Potter se han hecho?", opciones: ["Ocho", "Cinco", "Siete", "Nueve", "Cuatro"], respuestaCorrecta: "Ocho"),
-        Question(statement: "¿Quién escribió el Quijote?", opciones: ["Charles Dickens","James Joyce","Gebriel Garcia","Miguel de Cervantes","William Shakespeare"], respuestaCorrecta: "Miguel de Cervantes"),
-        Question(statement: "¿Quién es el máximo goleador de la historia del fútbol?", opciones: ["Pele","Maradona","Cristiano Ronaldo","Messi","Roberto Carlos"], respuestaCorrecta: "Cristiano Ronaldo"),
-        Question(statement: "¿Cuántas cuerdas tiene un violín?", opciones: ["Ona","Dos","Tres","Cuatro","Cinco"], respuestaCorrecta: "Cuatro"),
-        Question(statement: "¿En qué año murió Diana de Gales?", opciones: ["1988","1997","2000","1954","1990"], respuestaCorrecta: "1997"),
-        Question(statement: "¿En qué equipo jugó Michael Jordan la mayor parte de su carrera?", opciones: ["Chicago Bulls","Los Angeles Lakers","Miami Heat","Boston Celtics","Detroit Pistons"], respuestaCorrecta: "Chicago Bulls"),
+        Question(statement: "¿Cuándo acabó la II Guerra Mundial?", responseOptions: ["1950", "1920", "1955", "1945", "1820"], correctAnswer: "1945"),
+        Question(statement: "¿Cuál es el océano más grande del mundo?", responseOptions: ["océano pacifico", "océano atlantico", "océano indico", "océano marino", "océano artico"], correctAnswer: "océano pacifico"),
+        Question(statement: "¿Cuántos huesos hay en el cuerpo humano?", responseOptions: ["106 huesos", "206 huesos", "100 huesos", "155 huegos", "36 huesos"], correctAnswer: "206 huesos"),
+        Question(statement: "¿Quién pintó la última cena?", responseOptions: ["Pablo Picasso", "Diego Velázquez", "Salvador Dali", "Claude Monet", "Leonardo Da Vinci"], correctAnswer: "Leonardo Da Vinci"),
+        Question(statement: "¿Cuántas películas de Harry Potter se han hecho?", responseOptions: ["Ocho", "Cinco", "Siete", "Nueve", "Cuatro"], correctAnswer: "Ocho"),
+        Question(statement: "¿Quién escribió el Quijote?", responseOptions: ["Charles Dickens","James Joyce","Gebriel Garcia","Miguel de Cervantes","William Shakespeare"], correctAnswer: "Miguel de Cervantes"),
+        Question(statement: "¿Quién es el máximo goleador de la historia del fútbol?", responseOptions: ["Pele","Maradona","Cristiano Ronaldo","Messi","Roberto Carlos"], correctAnswer: "Cristiano Ronaldo"),
+        Question(statement: "¿Cuántas cuerdas tiene un violín?", responseOptions: ["Ona","Dos","Tres","Cuatro","Cinco"], correctAnswer: "Cuatro"),
+        Question(statement: "¿En qué año murió Diana de Gales?", responseOptions: ["1988","1997","2000","1954","1990"], correctAnswer: "1997"),
+        Question(statement: "¿En qué equipo jugó Michael Jordan la mayor parte de su carrera?", responseOptions: ["Chicago Bulls","Los Angeles Lakers","Miami Heat","Boston Celtics","Detroit Pistons"], correctAnswer: "Chicago Bulls"),
     ]
     var correctQuestions: [Question] = []
-    var preguntasIncorrectas: [Question] = []
-    var intentosFallidos: Int = 0
-    var puntosGanados: Int = 0
+    var wrongQuestions: [Question] = []
+    var failedAttempts: Int = 0
+    var pointsEarned: Int = 0
     var userName: String = ""
 
     @IBOutlet weak var enunciadoLabel: UILabel!
@@ -49,74 +49,61 @@ class InterfaceGameViewController: UIViewController {
         guard let index = [opcion1Button, opcion2Button, opcion3Button, opcion4Button, opcion5Button].firstIndex(of: sender) else {
                 return
             }
-            let preguntaActual = questions[correctQuestions.count + preguntasIncorrectas.count]
-            let esCorrecta = preguntaActual.isCorrect(index)
+            let currentQuestion = questions[correctQuestions.count + wrongQuestions.count]
+            let esCorrecta = currentQuestion.isCorrect(index)
 
             if esCorrecta {
-                correctQuestions.append(preguntaActual)
-                puntosGanados += 10
+                correctQuestions.append(currentQuestion)
+                pointsEarned += 10
                 mostrarMensaje("¡Felicitaciones! Respuesta anterior correcta.")
             } else {
-                preguntasIncorrectas.append(preguntaActual)
-                intentosFallidos += 1
-                mostrarMensaje("Respuesta anterior incorrecta. La respuesta correcta era \(preguntaActual.respuestaCorrecta).")
+                wrongQuestions.append(currentQuestion)
+                failedAttempts += 1
+                mostrarMensaje("Respuesta anterior incorrecta. La respuesta correcta era \(currentQuestion.correctAnswer).")
             }
-            presentarSiguientePregunta()
+            showNextQuestion()
         }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presentarSiguientePregunta()
+        showNextQuestion()
     }
     
-    func presentarSiguientePregunta() {
-        if intentosFallidos >= 3 {
-            mostrarResultadosFinales()
+    func showNextQuestion() {
+        if failedAttempts >= 3 {
+            showFinalResults()
             return
         }
-        let indiceSiguientePregunta = correctQuestions.count + preguntasIncorrectas.count
-        guard indiceSiguientePregunta < questions.count else {
-            mostrarResultadosFinales()
+        let indexNextQuestion = correctQuestions.count + wrongQuestions.count
+        guard indexNextQuestion < questions.count else {
+            showFinalResults()
             return
         }
-        let preguntaActual = questions[indiceSiguientePregunta]
-        enunciadoLabel.text = preguntaActual.statement
-        opcion1Button.setTitle(preguntaActual.opciones[0], for: .normal)
-        opcion2Button.setTitle(preguntaActual.opciones[1], for: .normal)
-        opcion3Button.setTitle(preguntaActual.opciones[2], for: .normal)
-        opcion4Button.setTitle(preguntaActual.opciones[3], for: .normal)
-        opcion5Button.setTitle(preguntaActual.opciones[4], for: .normal)
+        let currentQuestion = questions[indexNextQuestion]
+        enunciadoLabel.text = currentQuestion.statement
+        opcion1Button.setTitle(currentQuestion.responseOptions[0], for: .normal)
+        opcion2Button.setTitle(currentQuestion.responseOptions[1], for: .normal)
+        opcion3Button.setTitle(currentQuestion.responseOptions[2], for: .normal)
+        opcion4Button.setTitle(currentQuestion.responseOptions[3], for: .normal)
+        opcion5Button.setTitle(currentQuestion.responseOptions[4], for: .normal)
     }
     func mostrarMensaje(_ mensaje: String) {
         mensajeLabel.text = mensaje
     }
-    func obtenerSiguientePregunta() -> Question? {
-        let indiceSiguientePregunta = correctQuestions.count
-        guard indiceSiguientePregunta < questions.count else {
-            return nil
-        }
-        return questions[indiceSiguientePregunta]
-    }
+
     func prepararResultadosFinalesViewController() -> FaseFinalViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let resultsViewController = storyboard.instantiateViewController(withIdentifier: "FaseFinalViewController") as! FaseFinalViewController
-        resultsViewController.preguntasCorrectas = correctQuestions
-        resultsViewController.preguntasIncorrectas = preguntasIncorrectas
-        resultsViewController.intentosFallidos = intentosFallidos
-        resultsViewController.puntosGanados = puntosGanados
+        resultsViewController.correctQuestions = correctQuestions
+        resultsViewController.wrongQuestions = wrongQuestions
+        resultsViewController.failedAttempts = failedAttempts
+        resultsViewController.pointsEarned = pointsEarned
             return resultsViewController
         }
-    func mostrarResultadosFinales() {
+    func showFinalResults() {
             let resultsViewController = prepararResultadosFinalesViewController()
             navigationController?.pushViewController(resultsViewController, animated: true)
         }
-    func reiniciarJuego() {
-        correctQuestions = []
-        preguntasIncorrectas = []
-        intentosFallidos = 0
-        puntosGanados = 0
-    }
-
 
 }
 
