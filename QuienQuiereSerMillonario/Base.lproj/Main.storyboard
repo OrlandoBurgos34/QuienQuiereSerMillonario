@@ -351,6 +351,7 @@
                     <connections>
                         <outlet property="acertadasLabel" destination="2Xq-1b-T1h" id="jGT-mm-vbb"/>
                         <outlet property="fallidasLabel" destination="UJu-Qg-vIs" id="apy-vv-SdS"/>
+                        <outlet property="preguntasCorrectasLabel" destination="sol-iw-vmQ" id="zol-XS-CGq"/>
                         <outlet property="preguntasIncorrectasLabel" destination="EAF-mO-72c" id="Thr-PI-de9"/>
                         <outlet property="viewPointTextLabel" destination="wSk-7F-5Nu" id="WAG-Bd-8yc"/>
                     </connections>

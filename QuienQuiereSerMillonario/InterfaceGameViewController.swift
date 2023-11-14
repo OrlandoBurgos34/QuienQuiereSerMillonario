@@ -18,10 +18,7 @@ struct Pregunta {
 }
 
 class InterfaceGameViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+
     var questions: [Pregunta] = [
         Pregunta(enunciado: "¿Cuándo acabó la II Guerra Mundial?", opciones: ["1950", "1920", "1955", "1945", "1820"], respuestaCorrecta: "1945"),
         Pregunta(enunciado: "¿Cuál es el océano más grande del mundo?", opciones: ["océano pacifico", "océano atlantico", "océano indico", "océano marino", "océano artico"], respuestaCorrecta: "océano pacifico"),
@@ -54,11 +51,11 @@ class InterfaceGameViewController: UIViewController {
             return
         }
         let indiceSiguientePregunta = preguntasCorrectas.count + preguntasIncorrectas.count
-        guard indiceSiguientePregunta < preguntas.count else {
+        guard indiceSiguientePregunta < questions.count else {
             mostrarResultadosFinales()
             return
         }
-        let preguntaActual = preguntas[indiceSiguientePregunta]
+        let preguntaActual = questions[indiceSiguientePregunta]
         enunciadoLabel.text = preguntaActual.enunciado
         opcion1Button.setTitle(preguntaActual.opciones[0], for: .normal)
         opcion2Button.setTitle(preguntaActual.opciones[1], for: .normal)
@@ -70,7 +67,7 @@ class InterfaceGameViewController: UIViewController {
         guard let index = [opcion1Button, opcion2Button, opcion3Button, opcion4Button, opcion5Button].firstIndex(of: sender) else {
                 return
             }
-            let preguntaActual = preguntas[preguntasCorrectas.count + preguntasIncorrectas.count]
+            let preguntaActual = questions[preguntasCorrectas.count + preguntasIncorrectas.count]
             let esCorrecta = preguntaActual.isCorrect(index)
 
             if esCorrecta {
@@ -89,10 +86,10 @@ class InterfaceGameViewController: UIViewController {
     }
     func obtenerSiguientePregunta() -> Pregunta? {
         let indiceSiguientePregunta = preguntasCorrectas.count
-        guard indiceSiguientePregunta < preguntas.count else {
+        guard indiceSiguientePregunta < questions.count else {
             return nil
         }
-        return preguntas[indiceSiguientePregunta]
+        return questions[indiceSiguientePregunta]
     }
     func prepararResultadosFinalesViewController() -> FaseFinalViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
