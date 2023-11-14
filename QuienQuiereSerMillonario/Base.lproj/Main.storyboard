@@ -346,10 +346,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="acertadasLabel" destination="2Xq-1b-T1h" id="jGT-mm-vbb"/>
-                        <outlet property="fallidasLabel" destination="UJu-Qg-vIs" id="apy-vv-SdS"/>
-                        <outlet property="preguntasCorrectasLabel" destination="sol-iw-vmQ" id="zol-XS-CGq"/>
-                        <outlet property="preguntasIncorrectasLabel" destination="EAF-mO-72c" id="Thr-PI-de9"/>
+                        <outlet property="correctLabel" destination="2Xq-1b-T1h" id="Mro-fe-JdU"/>
+                        <outlet property="correctQuestionLabel" destination="sol-iw-vmQ" id="fdU-ub-zpo"/>
+                        <outlet property="failedLabel" destination="UJu-Qg-vIs" id="GXL-ha-L9K"/>
+                        <outlet property="failedQuestionLabel" destination="EAF-mO-72c" id="Nlm-N9-ptL"/>
                         <outlet property="viewPointTextLabel" destination="wSk-7F-5Nu" id="WAG-Bd-8yc"/>
                     </connections>
                 </viewController>
