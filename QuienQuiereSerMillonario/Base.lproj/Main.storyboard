@@ -256,8 +256,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La7-7k-nlY">
-                                <rect key="frame" x="180" y="735" width="42" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comentario" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La7-7k-nlY">
+                                <rect key="frame" x="46" y="735" width="310" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -269,6 +269,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="C2V-tu-vuV"/>
                     <connections>
+                        <outlet property="enunciadoLabel" destination="Xtv-yF-zEA" id="bRs-9H-eBB"/>
+                        <outlet property="mensajeLabel" destination="La7-7k-nlY" id="LXB-jr-2Yx"/>
+                        <outlet property="opcion1Button" destination="9tc-dQ-ZkD" id="2ZU-Uw-7t0"/>
+                        <outlet property="opcion2Button" destination="X2r-aW-egb" id="N1P-v8-jVc"/>
+                        <outlet property="opcion3Button" destination="5Ca-JR-gmB" id="HQf-5I-l1e"/>
+                        <outlet property="opcion4Button" destination="zBi-2p-iiG" id="rHz-2O-ekX"/>
+                        <outlet property="opcion5Button" destination="1Yi-qe-i3J" id="a6U-bk-KLf"/>
                         <outlet property="optionalQuestion" destination="1Yi-qe-i3J" id="YG8-wW-xuj"/>
                         <outlet property="questionGameLabel" destination="Xtv-yF-zEA" id="HGG-NG-dAx"/>
                         <outlet property="validationQuestion" destination="La7-7k-nlY" id="0iY-ix-hXX"/>
@@ -276,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFA-U2-NPY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1427" y="-339"/>
+            <point key="canvasLocation" x="-1428.2442748091603" y="-339.43661971830988"/>
         </scene>
         <!--Fase Final View Controller-->
         <scene sceneID="j7n-35-y3g">

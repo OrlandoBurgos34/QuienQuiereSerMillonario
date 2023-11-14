@@ -22,8 +22,6 @@ class InterfaceGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    var userName: String = ""
-    
     var questions: [Pregunta] = [
         Pregunta(enunciado: "¿Cuándo acabó la II Guerra Mundial?", opciones: ["1950", "1920", "1955", "1945", "1820"], respuestaCorrecta: "1945"),
         Pregunta(enunciado: "¿Cuál es el océano más grande del mundo?", opciones: ["océano pacifico", "océano atlantico", "océano indico", "océano marino", "océano artico"], respuestaCorrecta: "océano pacifico"),
@@ -36,100 +34,88 @@ class InterfaceGameViewController: UIViewController {
         Pregunta(enunciado: "¿En qué año murió Diana de Gales?", opciones: ["1988","1997","2000","1954","1990"], respuestaCorrecta: "1997"),
         Pregunta(enunciado: "¿En qué equipo jugó Michael Jordan la mayor parte de su carrera?", opciones: ["Chicago Bulls","Los Angeles Lakers","Miami Heat","Boston Celtics","Detroit Pistons"], respuestaCorrecta: "Chicago Bulls"),
     ]
-    var currentQuestionIndex = 0
-    var score = 0
-    var remainingAttempts = 3
+    var preguntasCorrectas: [Pregunta] = []
+    var preguntasIncorrectas: [Pregunta] = []
+    var intentosFallidos: Int = 0
+    var puntosGanados: Int = 0
+    var userName: String = ""
 
-    @IBOutlet weak var questionGameLabel: UILabel!
-    @IBOutlet weak var validationQuestion: UILabel!
-    @IBOutlet var optionButtons: [UIButton]!
+    @IBOutlet weak var enunciadoLabel: UILabel!
+    @IBOutlet weak var opcion1Button: UIButton!
+    @IBOutlet weak var opcion2Button: UIButton!
+    @IBOutlet weak var opcion3Button: UIButton!
+    @IBOutlet weak var opcion4Button: UIButton!
+    @IBOutlet weak var opcion5Button: UIButton!
+    @IBOutlet weak var mensajeLabel: UILabel!
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        showQuestion()
-    }
-
-    func showQuestion() {
-        let currentQuestion = questions[currentQuestionIndex]
-        questionGameLabel.text = currentQuestion.enunciado
-
-        for (index, button) in optionButtons.enumerated() {
-            button.setTitle(currentQuestion.opciones[index], for: .normal)
-            button.isEnabled = true
+    func presentarSiguientePregunta() {
+        if intentosFallidos >= 3 {
+            mostrarResultadosFinales()
+            return
         }
+        let indiceSiguientePregunta = preguntasCorrectas.count + preguntasIncorrectas.count
+        guard indiceSiguientePregunta < preguntas.count else {
+            mostrarResultadosFinales()
+            return
+        }
+        let preguntaActual = preguntas[indiceSiguientePregunta]
+        enunciadoLabel.text = preguntaActual.enunciado
+        opcion1Button.setTitle(preguntaActual.opciones[0], for: .normal)
+        opcion2Button.setTitle(preguntaActual.opciones[1], for: .normal)
+        opcion3Button.setTitle(preguntaActual.opciones[2], for: .normal)
+        opcion4Button.setTitle(preguntaActual.opciones[3], for: .normal)
+        opcion5Button.setTitle(preguntaActual.opciones[4], for: .normal)
     }
-
     @IBAction func answerGameLabel(_ sender: UIButton) {
-        let selectedAnswerIndex = optionButtons.firstIndex(of: sender)!
-        respondToQuestion(at: selectedAnswerIndex)
+        guard let index = [opcion1Button, opcion2Button, opcion3Button, opcion4Button, opcion5Button].firstIndex(of: sender) else {
+                return
+            }
+            let preguntaActual = preguntas[preguntasCorrectas.count + preguntasIncorrectas.count]
+            let esCorrecta = preguntaActual.isCorrect(index)
+
+            if esCorrecta {
+                preguntasCorrectas.append(preguntaActual)
+                puntosGanados += 10
+                mostrarMensaje("¡Felicitaciones! Respuesta anterior correcta.")
+            } else {
+                preguntasIncorrectas.append(preguntaActual)
+                intentosFallidos += 1
+                mostrarMensaje("Respuesta anterior incorrecta. La respuesta correcta era \(preguntaActual.respuestaCorrecta).")
+            }
+            presentarSiguientePregunta()
+        }
+    func mostrarMensaje(_ mensaje: String) {
+        mensajeLabel.text = mensaje
     }
-//    func realizarPregunta() {
-//        guard intentosFallidos < 3, let preguntaActual = preguntas.first else {
-//            mostrarResultados()
-//            return
-//        }
-//
-//        print(preguntaActual.enunciado)
-//        let opciones = ["a", "b", "c", "d", "e"]
-//        for (index, opcion) in preguntaActual.opciones.enumerated() {
-//            print("\(opciones[index])) \(opcion)")
-//        }
-//
-//        print("Seleccione su respuesta (a-e): ")
-//
-//        if let respuesta = readLine(), let letra = respuesta.lowercased().first, let respuestaIndex = opciones.firstIndex(of: String(letra)), respuestaIndex >= 0 && respuestaIndex < preguntaActual.opciones.count {
-//
-//            let opcionSeleccionada = preguntaActual.opciones[respuestaIndex]
-//            if opcionSeleccionada == preguntaActual.respuestaCorrecta {
-//                dineroGanado += 10
-//                preguntasCorrectas.append(preguntaActual)
-//            } else {
-//                intentosFallidos += 1
-//                preguntasIncorrectas.append(preguntaActual)
-//            }
-//
-//            preguntas.removeFirst()
-//            realizarPregunta()
-//        } else {
-//            print("Respuesta inválida. Por favor, seleccione una opción válida.")
-//            realizarPregunta()
-//        }
-//    }
-
-    func respondToQuestion(at index: Int) {
-        optionButtons.forEach { $0.isEnabled = false } // Deshabilita los botones después de responder
-
-        if questions[currentQuestionIndex].isCorrect(index) {
-            score += 10
-            validationQuestion.text = "Respuesta correcta"
-        } else {
-            remainingAttempts -= 1
-            validationQuestion.text = "Respuesta incorrecta"
+    func obtenerSiguientePregunta() -> Pregunta? {
+        let indiceSiguientePregunta = preguntasCorrectas.count
+        guard indiceSiguientePregunta < preguntas.count else {
+            return nil
         }
-
-        if remainingAttempts == 0 || currentQuestionIndex == questions.count - 1 {
-            endGame()
-        } else {
-            currentQuestionIndex += 1
-            showQuestion()
-        }
+        return preguntas[indiceSiguientePregunta]
     }
-
-    func endGame() {
-        let message: String
-        if remainingAttempts == 0 {
-            message = "Se acabaron los intentos. Tu puntaje final es \(score)."
-        } else {
-            message = "¡Juego completado! Tu puntaje final es \(score)."
+    func prepararResultadosFinalesViewController() -> FaseFinalViewController {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let resultadosViewController = storyboard.instantiateViewController(withIdentifier: "FaseFinalViewController") as! FaseFinalViewController
+            resultadosViewController.preguntasCorrectas = preguntasCorrectas
+            resultadosViewController.preguntasIncorrectas = preguntasIncorrectas
+            resultadosViewController.intentosFallidos = intentosFallidos
+            resultadosViewController.puntosGanados = puntosGanados
+            return resultadosViewController
         }
-
-        let alert = UIAlertController(title: "Fin del juego", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            // Puedes agregar aquí cualquier acción adicional al finalizar el juego
+    func mostrarResultadosFinales() {
+            let resultadosViewController = prepararResultadosFinalesViewController()
+            navigationController?.pushViewController(resultadosViewController, animated: true)
         }
-        alert.addAction(okAction)
-
-        present(alert, animated: true, completion: nil)
+    func reiniciarJuego() {
+        preguntasCorrectas = []
+        preguntasIncorrectas = []
+        intentosFallidos = 0
+        puntosGanados = 0
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presentarSiguientePregunta()
     }
 
 }
