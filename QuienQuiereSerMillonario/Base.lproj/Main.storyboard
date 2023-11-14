@@ -257,10 +257,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comentario" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La7-7k-nlY">
-                                <rect key="frame" x="46" y="735" width="310" height="73"/>
+                                <rect key="frame" x="46" y="721" width="310" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -276,9 +276,6 @@
                         <outlet property="opcion3Button" destination="5Ca-JR-gmB" id="HQf-5I-l1e"/>
                         <outlet property="opcion4Button" destination="zBi-2p-iiG" id="rHz-2O-ekX"/>
                         <outlet property="opcion5Button" destination="1Yi-qe-i3J" id="a6U-bk-KLf"/>
-                        <outlet property="optionalQuestion" destination="1Yi-qe-i3J" id="YG8-wW-xuj"/>
-                        <outlet property="questionGameLabel" destination="Xtv-yF-zEA" id="HGG-NG-dAx"/>
-                        <outlet property="validationQuestion" destination="La7-7k-nlY" id="0iY-ix-hXX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFA-U2-NPY" sceneMemberID="firstResponder"/>
@@ -311,18 +308,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICB-mS-Lib" customClass="VIewController">
-                                <rect key="frame" x="152" y="745" width="89" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.13011649250000001" green="0.1363869664" blue="0.4863345623" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Reiniciar">
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="resetGameButton:" destination="qpG-Vo-ZjJ" eventType="touchUpInside" id="qRp-ah-Gwm"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Numero de Preguntas Acertadas:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xq-1b-T1h">
                                 <rect key="frame" x="42" y="153" width="310" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -344,6 +329,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qmr-wK-g3x">
+                                <rect key="frame" x="163" y="745" width="68" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.18313783410000001" green="0.1186749414" blue="0.58228915930000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetGameButton:" destination="qpG-Vo-ZjJ" eventType="touchUpInside" id="Qnl-nU-sbc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Imb-3B-lGZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -11,8 +11,11 @@ class FaseFinalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewPointTextLabel.text = "Puntos Ganados: \(calcularPuntajeFinal())."
+        acertadasLabel.text = "Preguntas Acertadas: \(preguntasCorrectas.count)"
+        fallidasLabel.text = "Preguntas Fallidas: \(preguntasIncorrectas.count)"
+        preguntasCorrectasLabel.text = "Preguntas Acertadas:\n\(obtenerTextoPreguntas(preguntasCorrectas))"
+        preguntasIncorrectasLabel.text = "Preguntas Fallidas:\n\(obtenerTextoPreguntas(preguntasIncorrectas))"
     }
     var preguntasCorrectas: [Pregunta] = []
     var preguntasIncorrectas: [Pregunta] = []
@@ -28,6 +31,7 @@ class FaseFinalViewController: UIViewController {
         reiniciarJuego()
         navigationController?.popToRootViewController(animated: true)
     }
+    
     func reiniciarJuego() {
         preguntasCorrectas = []
         preguntasIncorrectas = []
@@ -43,9 +47,9 @@ class FaseFinalViewController: UIViewController {
             return finalPoints
         }
     }
-    func obtenerTextoPreguntas(_ preguntas: [Pregunta]) -> String {
+    func obtenerTextoPreguntas(_ questions: [Pregunta]) -> String {
         var textoPreguntas = ""
-        for pregunta in preguntas {
+        for pregunta in questions {
             textoPreguntas += "\(pregunta.enunciado)\n"
         }
         return textoPreguntas
