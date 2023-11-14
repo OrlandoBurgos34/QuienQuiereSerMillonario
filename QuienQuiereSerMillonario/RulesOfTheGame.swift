@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReglasViewController: UIViewController {
+class RulesOfTheGame: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

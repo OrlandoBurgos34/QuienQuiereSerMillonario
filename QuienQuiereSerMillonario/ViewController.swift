@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
     @IBAction func nextPageButton(_ sender: UIButton) {
         insertAndSendName()
-        if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "ReglasViewController") as? ReglasViewController {
+        if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "RulesOfTheGame") as? RulesOfTheGame {
             nextViewController.userName = userName
             self.navigationController?.pushViewController(nextViewController, animated: true)
         } else {

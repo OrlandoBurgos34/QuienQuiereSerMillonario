@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="-2967.1755725190837" y="-339.43661971830988"/>
         </scene>
-        <!--Reglas View Controller-->
+        <!--Rules Of The Game-->
         <scene sceneID="MDv-VU-hit">
             <objects>
-                <viewController storyboardIdentifier="ReglasViewController" id="kbX-Cx-0zY" customClass="ReglasViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RulesOfTheGame" id="kbX-Cx-0zY" customClass="RulesOfTheGame" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lRU-DN-Wdt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,10 +282,10 @@
             </objects>
             <point key="canvasLocation" x="-1428.2442748091603" y="-339.43661971830988"/>
         </scene>
-        <!--Fase Final View Controller-->
+        <!--Final Phase View Controller-->
         <scene sceneID="j7n-35-y3g">
             <objects>
-                <viewController storyboardIdentifier="FaseFinalViewController" id="qpG-Vo-ZjJ" customClass="FaseFinalViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinalPhaseViewController" id="qpG-Vo-ZjJ" customClass="FinalPhaseViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RfD-LQ-cVJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

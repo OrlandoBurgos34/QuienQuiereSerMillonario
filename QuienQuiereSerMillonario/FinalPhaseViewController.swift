@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FaseFinalViewController: UIViewController {
+class FinalPhaseViewController: UIViewController {
 
 
     var correctQuestions: [Question] = []

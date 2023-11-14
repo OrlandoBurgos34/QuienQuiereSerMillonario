@@ -91,9 +91,9 @@ class InterfaceGameViewController: UIViewController {
         mensajeLabel.text = mensaje
     }
 
-    func prepareFinalResultsViewController() -> FaseFinalViewController {
+    func prepareFinalResultsViewController() -> FinalPhaseViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let resultsViewController = storyboard.instantiateViewController(withIdentifier: "FaseFinalViewController") as! FaseFinalViewController
+            let resultsViewController = storyboard.instantiateViewController(withIdentifier: "FinalPhaseViewController") as! FinalPhaseViewController
         resultsViewController.correctQuestions = correctQuestions
         resultsViewController.wrongQuestions = wrongQuestions
         resultsViewController.failedAttempts = failedAttempts
