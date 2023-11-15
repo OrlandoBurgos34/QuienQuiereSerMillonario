@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     @IBAction func nextPageButton(_ sender: UIButton) {
-        insertAndSendName()
+        saveEnteredUsername()
         if let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "RulesOfTheGame") as? RulesOfTheGame {
             nextViewController.userName = userName
             self.navigationController?.pushViewController(nextViewController, animated: true)
@@ -28,13 +28,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pushButton(_ sender: UIButton) {
-        insertAndSendName()
+        saveEnteredUsername()
         if let nextPageGame = self.storyboard?.instantiateViewController(identifier: "InterfaceGameViewController") as? InterfaceGameViewController {
             nextPageGame.userName = userName
             self.navigationController?.pushViewController(nextPageGame, animated: true)
         }
     }
-    func insertAndSendName() {
+    func saveEnteredUsername() {
         if let nameText = insertNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !nameText.isEmpty {
             userName = nameText
             print("Nombre ingresado: \(userName)")
@@ -42,6 +42,7 @@ class ViewController: UIViewController {
             print("Por favor, ingresa un nombre válido.")
         }
     }
+
 }
 
     

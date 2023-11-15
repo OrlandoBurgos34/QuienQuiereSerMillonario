@@ -49,37 +49,43 @@ class InterfaceGameViewController: UIViewController {
         guard let index = [opcion1Button, opcion2Button, opcion3Button, opcion4Button, opcion5Button].firstIndex(of: sender) else {
                 return
             }
-            let currentQuestion = questions[correctQuestions.count + wrongQuestions.count]
-            let esCorrecta = currentQuestion.isCorrect(index)
-
-            if esCorrecta {
-                correctQuestions.append(currentQuestion)
-                pointsEarned += 10
-                showMessage("¡Felicitaciones! Respuesta anterior correcta.")
-            } else {
-                wrongQuestions.append(currentQuestion)
-                failedAttempts += 1
-                showMessage("Respuesta anterior incorrecta. La respuesta correcta era \(currentQuestion.correctAnswer).")
-            }
-            showNextQuestion()
+        validateResponse(index)
         }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showNextQuestion()
     }
+    func validateResponse(_ index: Int) {
+        let currentQuestion = questions[correctQuestions.count + wrongQuestions.count]
+        let esCorrecta = currentQuestion.isCorrect(index)
+
+        if esCorrecta {
+            correctQuestions.append(currentQuestion)
+            pointsEarned += 10
+            showMessage("¡Felicitaciones! Respuesta anterior correcta.")
+        } else {
+            wrongQuestions.append(currentQuestion)
+            failedAttempts += 1
+            showMessage("Respuesta anterior incorrecta. La respuesta correcta era \(currentQuestion.correctAnswer).")
+        }
+        showNextQuestion()
+    }
     
     func showNextQuestion() {
         if failedAttempts >= 3 {
-            showFinalResults()
+            prepareFinalResultsViewController()
             return
         }
         let indexNextQuestion = correctQuestions.count + wrongQuestions.count
         guard indexNextQuestion < questions.count else {
-            showFinalResults()
+            prepareFinalResultsViewController()
             return
         }
-        let currentQuestion = questions[indexNextQuestion]
+        displayQuestion(questions[indexNextQuestion])
+    }
+
+    func displayQuestion(_ currentQuestion: Question) {
         enunciadoLabel.text = currentQuestion.statement
         opcion1Button.setTitle(currentQuestion.responseOptions[0], for: .normal)
         opcion2Button.setTitle(currentQuestion.responseOptions[1], for: .normal)
@@ -87,23 +93,20 @@ class InterfaceGameViewController: UIViewController {
         opcion4Button.setTitle(currentQuestion.responseOptions[3], for: .normal)
         opcion5Button.setTitle(currentQuestion.responseOptions[4], for: .normal)
     }
+ 
     func showMessage(_ mensaje: String) {
         mensajeLabel.text = mensaje
     }
-
-    func prepareFinalResultsViewController() -> FinalPhaseViewController {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let resultsViewController = storyboard.instantiateViewController(withIdentifier: "FinalPhaseViewController") as! FinalPhaseViewController
+    func prepareFinalResultsViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let resultsViewController = storyboard.instantiateViewController(withIdentifier: "FinalPhaseViewController") as! FinalPhaseViewController
         resultsViewController.correctQuestions = correctQuestions
         resultsViewController.wrongQuestions = wrongQuestions
         resultsViewController.failedAttempts = failedAttempts
         resultsViewController.pointsEarned = pointsEarned
-            return resultsViewController
-        }
-    func showFinalResults() {
-            let resultsViewController = prepareFinalResultsViewController()
-            navigationController?.pushViewController(resultsViewController, animated: true)
-        }
+        navigationController?.pushViewController(resultsViewController, animated: true)
+    }
+
 }
 
 

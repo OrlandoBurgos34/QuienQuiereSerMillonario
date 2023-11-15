@@ -9,11 +9,12 @@ import UIKit
 
 class RulesOfTheGame: UIViewController {
 
+    var userName: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         TextWelcome.text = "Bienvenido \(userName)"
     }
-    var userName: String = ""
+    
     @IBAction func enterGameButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

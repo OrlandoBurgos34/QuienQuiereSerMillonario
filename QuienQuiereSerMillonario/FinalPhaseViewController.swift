@@ -26,28 +26,24 @@ class FinalPhaseViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewPointTextLabel.text = "Puntos Ganados: \(calculateFinalScore())."
+        showFinalResult()
+        
+    }
+    
+    func showFinalResult(){
+        viewPointTextLabel.text = "Puntos Ganados: \(pointsEarned)."
         correctLabel.text = "Preguntas Acertadas: \(correctQuestions.count)"
         failedLabel.text = "Preguntas Fallidas: \(wrongQuestions.count)"
         correctQuestionLabel.text = "Preguntas Acertadas:\n\(getTextQuestions(correctQuestions))"
         failedQuestionLabel.text = "Preguntas Fallidas:\n\(getTextQuestions(wrongQuestions))"
     }
-    
     func resetGame() {
         correctQuestions = []
         wrongQuestions = []
         failedAttempts = 0
         pointsEarned = 0
     }
-    func calculateFinalScore() -> Int {
-        var finalPoints = wrongQuestions.count * 10
-        if correctQuestions.count == 10{
-            return pointsEarned - finalPoints
-        } else {
-            finalPoints = correctQuestions.count * 10
-            return finalPoints
-        }
-    }
+
     func getTextQuestions(_ questions: [Question]) -> String {
         var textQuestions = ""
         for question in questions {
