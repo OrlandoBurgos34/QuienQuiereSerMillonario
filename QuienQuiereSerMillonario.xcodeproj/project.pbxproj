@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5008E4DA2AFA6FD100457B11 /* RulesOfTheGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008E4D92AFA6FD100457B11 /* RulesOfTheGame.swift */; };
-		5008E4DC2AFA73E400457B11 /* InterfaceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008E4DB2AFA73E400457B11 /* InterfaceGameViewController.swift */; };
+		5008E4DC2AFA73E400457B11 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008E4DB2AFA73E400457B11 /* GameViewController.swift */; };
 		5008E4DE2AFA743F00457B11 /* FinalPhaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5008E4DD2AFA743F00457B11 /* FinalPhaseViewController.swift */; };
 		50E167352AF3F22A00C31DF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E167342AF3F22A00C31DF5 /* AppDelegate.swift */; };
 		50E167372AF3F22A00C31DF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E167362AF3F22A00C31DF5 /* SceneDelegate.swift */; };
@@ -19,7 +19,7 @@
 
 /* Begin PBXFileReference section */
 		5008E4D92AFA6FD100457B11 /* RulesOfTheGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesOfTheGame.swift; sourceTree = "<group>"; };
-		5008E4DB2AFA73E400457B11 /* InterfaceGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceGameViewController.swift; sourceTree = "<group>"; };
+		5008E4DB2AFA73E400457B11 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		5008E4DD2AFA743F00457B11 /* FinalPhaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalPhaseViewController.swift; sourceTree = "<group>"; };
 		50E167312AF3F22A00C31DF5 /* QuienQuiereSerMillonario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuienQuiereSerMillonario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E167342AF3F22A00C31DF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 				50E1673D2AF3F22B00C31DF5 /* Assets.xcassets */,
 				50E167422AF3F22B00C31DF5 /* Info.plist */,
 				5008E4D92AFA6FD100457B11 /* RulesOfTheGame.swift */,
-				5008E4DB2AFA73E400457B11 /* InterfaceGameViewController.swift */,
+				5008E4DB2AFA73E400457B11 /* GameViewController.swift */,
 				50F076602AFECE4D00A47EA7 /* Structura.playground */,
 				5008E4DD2AFA743F00457B11 /* FinalPhaseViewController.swift */,
 			);
@@ -150,7 +150,7 @@
 				5008E4DA2AFA6FD100457B11 /* RulesOfTheGame.swift in Sources */,
 				50E167372AF3F22A00C31DF5 /* SceneDelegate.swift in Sources */,
 				5008E4DE2AFA743F00457B11 /* FinalPhaseViewController.swift in Sources */,
-				5008E4DC2AFA73E400457B11 /* InterfaceGameViewController.swift in Sources */,
+				5008E4DC2AFA73E400457B11 /* GameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

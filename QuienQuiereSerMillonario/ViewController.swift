@@ -23,13 +23,11 @@ class ViewController: UIViewController {
         } else {
             print("Error: No se pudo instanciar ReglasViewController desde el storyboard.")
         }
-            
-            
     }
     
     @IBAction func pushButton(_ sender: UIButton) {
         saveEnteredUsername()
-        if let nextPageGame = self.storyboard?.instantiateViewController(identifier: "InterfaceGameViewController") as? InterfaceGameViewController {
+        if let nextPageGame = self.storyboard?.instantiateViewController(identifier: "GameViewController") as? GameViewController {
             nextPageGame.userName = userName
             self.navigationController?.pushViewController(nextPageGame, animated: true)
         }

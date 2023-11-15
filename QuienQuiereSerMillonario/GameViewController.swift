@@ -17,7 +17,7 @@ struct Question {
     }
 }
 
-class InterfaceGameViewController: UIViewController {
+class GameViewController: UIViewController {
 
     var questions: [Question] = [
         Question(statement: "¿Cuándo acabó la II Guerra Mundial?", responseOptions: ["1950", "1920", "1955", "1945", "1820"], correctAnswer: "1945"),
@@ -59,7 +59,6 @@ class InterfaceGameViewController: UIViewController {
     func validateResponse(_ index: Int) {
         let currentQuestion = questions[correctQuestions.count + wrongQuestions.count]
         let esCorrecta = currentQuestion.isCorrect(index)
-
         if esCorrecta {
             correctQuestions.append(currentQuestion)
             pointsEarned += 10
@@ -71,20 +70,18 @@ class InterfaceGameViewController: UIViewController {
         }
         showNextQuestion()
     }
-    
-    func showNextQuestion() {
-        if failedAttempts >= 3 {
-            prepareFinalResultsViewController()
-            return
-        }
-        let indexNextQuestion = correctQuestions.count + wrongQuestions.count
-        guard indexNextQuestion < questions.count else {
-            prepareFinalResultsViewController()
-            return
-        }
-        displayQuestion(questions[indexNextQuestion])
-    }
 
+    func showNextQuestion() {
+        let indexNextQuestion = correctQuestions.count + wrongQuestions.count
+        if validationOfFailedAttempts() {
+            prepareFinalResultsViewController()
+        } else {
+            displayQuestion(questions[indexNextQuestion])
+        }
+    }
+    func validationOfFailedAttempts() -> Bool {
+        return failedAttempts >= 3 || (correctQuestions.count + wrongQuestions.count) >= questions.count
+    }
     func displayQuestion(_ currentQuestion: Question) {
         enunciadoLabel.text = currentQuestion.statement
         opcion1Button.setTitle(currentQuestion.responseOptions[0], for: .normal)

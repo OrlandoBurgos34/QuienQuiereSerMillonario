@@ -176,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="-2206.8702290076335" y="-339.43661971830988"/>
         </scene>
-        <!--Interface Game View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="Q1q-2e-NHw">
             <objects>
-                <viewController storyboardIdentifier="InterfaceGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vUe-Tg-cUM" customClass="InterfaceGameViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vUe-Tg-cUM" customClass="GameViewController" customModule="QuienQuiereSerMillonario" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0tZ-UW-bsk">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
