@@ -49,14 +49,14 @@ class GameViewController: UIViewController {
         guard let index = [opcion1Button, opcion2Button, opcion3Button, opcion4Button, opcion5Button].firstIndex(of: sender) else {
                 return
             }
-        validateResponse(index)
+        validateResponseAndPoints(index)
         }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showNextQuestion()
     }
-    func validateResponse(_ index: Int) {
+    func validateResponseAndPoints(_ index: Int) {
         let currentQuestion = questions[correctQuestions.count + wrongQuestions.count]
         let esCorrecta = currentQuestion.isCorrect(index)
         if esCorrecta {
