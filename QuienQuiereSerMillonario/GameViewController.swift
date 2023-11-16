@@ -57,30 +57,35 @@ class GameViewController: UIViewController {
         showNextQuestion()
     }
     func validateResponseAndPoints(_ index: Int) {
+        let numberOfPoints = 10
         let currentQuestion = questions[correctQuestions.count + wrongQuestions.count]
         let esCorrecta = currentQuestion.isCorrect(index)
         if esCorrecta {
             correctQuestions.append(currentQuestion)
-            pointsEarned += 10
+            pointsEarned += numberOfPoints
             showMessage("¡Felicitaciones! Respuesta anterior correcta.")
         } else {
             wrongQuestions.append(currentQuestion)
             failedAttempts += 1
             showMessage("Respuesta anterior incorrecta. La respuesta correcta era \(currentQuestion.correctAnswer).")
         }
-        showNextQuestion()
+        showsNextQuestionIfAttemptsHaveNotRunOut()
     }
-
-    func showNextQuestion() {
-        let indexNextQuestion = correctQuestions.count + wrongQuestions.count
+    func showsNextQuestionIfAttemptsHaveNotRunOut(){
         if validationOfFailedAttempts() {
             prepareFinalResultsViewController()
         } else {
-            displayQuestion(questions[indexNextQuestion])
+           showNextQuestion()
         }
     }
+    func showNextQuestion() {
+        let indexNextQuestion = correctQuestions.count + wrongQuestions.count
+            displayQuestion(questions[indexNextQuestion])
+    }
+
     func validationOfFailedAttempts() -> Bool {
-        return failedAttempts >= 3 || (correctQuestions.count + wrongQuestions.count) >= questions.count
+        let numAttempts = 3
+        return failedAttempts >= numAttempts  || (correctQuestions.count + wrongQuestions.count) >= questions.count
     }
     func displayQuestion(_ currentQuestion: Question) {
         enunciadoLabel.text = currentQuestion.statement
